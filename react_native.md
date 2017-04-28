@@ -13,3 +13,8 @@ Facebook 의 ios 앱과 같은 페이즈를 유지하기 위함이었다.
 
 개발자들이 lag을 유발할 수도 있는 코드들에 대한 걱정을 하지 않으면서 성능이 뛰어난 애니메이션 효과를 사용할 수 있게 하기 위해 약 1년간 노력을 해왔다.
 Animated Api는 serializable 을 이용하도록 설계되어 있었다. 애니메이션이 시작하기 직전에 애니메이션에 대한 모든 정보를 Native 에게 전송하게 되는데, 이러한 방법을 이용하여 Animation이 동작하는 동안 JS Thread를 block할 수 있게 되었다.
+
+## Better List Views in React Native
+
+기존의 ListView 에 있던 메모리 이슈나 버그들이 해결된 ListView가 등장했다. Use Case에 따라 FlatList, SectionList, VirtualizedList 등 다양한 ListView를 사용할 수 있게 되었다
+VirtualizedList 는 Pull to refresh 나 Scroll loading 등의 기능을 지원하기 때문에  가변적인 데이터를 다루는 데 유용하다. scrollToIndex 와 같은 기능을 사용하면 렌더링 없이 원하는 위치로 이동할 수도 있다.
