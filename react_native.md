@@ -18,3 +18,20 @@ Animated Api는 serializable 을 이용하도록 설계되어 있었다. 애니�
 
 기존의 ListView 에 있던 메모리 이슈나 버그들이 해결된 ListView가 등장했다. Use Case에 따라 FlatList, SectionList, VirtualizedList 등 다양한 ListView를 사용할 수 있게 되었다
 VirtualizedList 는 Pull to refresh 나 Scroll loading 등의 기능을 지원하기 때문에  가변적인 데이터를 다루는 데 유용하다. scrollToIndex 와 같은 기능을 사용하면 렌더링 없이 원하는 위치로 이동할 수도 있다.
+
+## idx: The Existential Function
+
+복합한 형태의 JSON Data에서 null 일 수도 있는 데이터에 접근하기 위해서는 아래와 같이 지루한 코드를 사용하게 된다.
+
+```
+props.user &&
+props.user.friends &&
+props.user.friends[0] &&
+props.user.friends[0].friends
+```
+
+이를 보다 쉽게 접근하기 위해 *idx* 라고 불리는 함수를 제공하고 있다. 이 함수는 내부에서 null or  undefined 여부를 체크해서 해당 값이 없을 경우 null or undefined를 return 하도록 구현되어 있다. 
+
+```
+idx(props, _ => _.user.friends[0].friends)
+```
