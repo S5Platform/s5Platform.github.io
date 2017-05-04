@@ -30,8 +30,12 @@ props.user.friends[0] &&
 props.user.friends[0].friends
 ```
 
-이를 보다 쉽게 접근하기 위해 *idx* 라고 불리는 함수를 제공하고 있다. 이 함수는 내부에서 null or  undefined 여부를 체크해서 해당 값이 없을 경우 null or undefined를 return 하도록 구현되어 있다. 
+이를 보다 쉽게 접근하기 위해 *idx* 라고 불리는 함수를 제공하고 있다. 이 함수는 내부에서 null or  undefined 여부를 체크해서 해당 값이 없을 경우 null or undefined를 return 하도록 구현되어 있다.
 
 ```
 idx(props, _ => _.user.friends[0].friends)
 ```
+
+## Introducing Create React Native App
+
+React Native Project 를 쉽게 시작할 수 있도록 도움을 주는 [Create React App](https://github.com/react-community/create-react-native-app) 이라는 프로젝트가 공개되었다. Create React Native App 을 이용하면 Xcode 나 Android Studio 를 설치하지 않아도 Windows나 Linux 에서 React Native App을 개발할 수 있다. [Expo](https://expo.io/)를 사용하기 때문에 가능하다. The Expo app은 Camera나 Video, 연락처와 Facebook 인증과 같은 유명한 네이티브 모듈을 포함하고 있다. Expo에 기본적으로 포함되어 있지 않은 모듈의 경우는 `npm run eject`를 이용하면 사용이 가능하다.
