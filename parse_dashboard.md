@@ -8,3 +8,26 @@ cd parse-dashboard
 npm install
 
 ```
+
+설치가 완료된 후에는 `parse-dashboard-config.json` 파일 내용을 수정하면 된다.
+
+```
+{
+  "apps": [
+    {
+      "serverURL": "http://localhost:1337/parse",
+      "appId": "myAppId",
+      "masterKey": "myMasterKey",
+      "appName": "MyApp"
+    }
+  ]
+}
+```
+
+아래 명령어를 사용하여 실행이 가능하다.
+
+```
+npm run dashboard 
+```
+
+실행이 완료되면 , `http://localhost:4000` 를 이용하여 접근할 수 있다.
