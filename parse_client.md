@@ -29,3 +29,41 @@ var Parse = require('parse/react-native');
 Parse.initialize("YOUR_APP_ID");
 Parse.serverURL = 'http://YOUR_PARSE_SERVER:1337/parse'
 ```
+
+### Saving Object
+
+object에 `set`을 이용하면 프로퍼티를 추가할 수 있으며
+`save`를 이용하면 해당 객체를 손 쉽게 저장할 수 있다. 저장에 성공하면 유니크한 `objectId`가 자동으로 생성된다.
+
+```
+var Score = Parse.Object.extend("Score");
+var score = new Parse.Query(Score);
+
+score.save(null, {
+  success: function(score) {
+  	// 성공한 경우 objectId가 자동으로 생성됨
+  	console.log(score.id);
+  },
+  error: function(score, error) {
+  	//
+  }
+});
+```
+
+### Retrieving Object
+
+`Parse.Query`를 이용하면 원하는 Data에 접근할 수 있다.
+`query.get`을 이용하면 해당 `objectId`로 데이터를 조회할 수 있다.
+
+```
+var GameScore = Parse.Object.extend("Score");
+var query = new Parse.Query(Score);
+query.get("xWMyZ4YEGZ", {
+  success: function(score) {
+	console.log( score );
+  },
+  error: function(object, error) {
+  	console.log( object );
+  }
+});
+```
