@@ -41,11 +41,11 @@ var score = new Parse.Query(Score);
 
 score.save(null, {
   success: function(score) {
-  	// 성공한 경우 objectId가 자동으로 생성됨
-  	console.log(score.id);
+    // 성공한 경우 objectId가 자동으로 생성됨
+    console.log(score.id);
   },
   error: function(score, error) {
-  	//
+    //
   }
 });
 ```
@@ -60,10 +60,45 @@ var GameScore = Parse.Object.extend("Score");
 var query = new Parse.Query(Score);
 query.get("xWMyZ4YEGZ", {
   success: function(score) {
-	console.log( score );
+   console.log( score );
   },
   error: function(object, error) {
-  	console.log( object );
+    console.log( object );
   }
 });
+```
+
+### Updating Objects
+
+object 를 업데이트 하는 방법도 매우 간단하다. 업데이트를 하려고 하는 객체의 objectId를 지정한 후에 업데이트를 하려는 필드에 `set` 을 이용하여 값을 저장한 후 `save`를 하면 된다.
+
+```
+var Score = Parse.Object.extend("Score");
+var score = new Score();
+
+score.id = "xWMyZ4YEGZ";
+score.set( "score", 1337);
+
+score.save(null, {
+  success: function(score) {
+  },
+  error: function(object, error) {
+    console.log( object );
+  }
+});
+```
+
+숫자로 되어있는 필드의 경우, `increment`를 사용하먄 증가시킬 수 있다.
+
+```
+score.increment("score");
+score.save();
+```
+
+Array로 되어 있는 필드의 경우 `addUnique`를 사용하면 새로운 필드를 추가할 수 있다.
+
+```
+score.addUnique("skills", "flying");
+score.addUnique("skills", "kungfu");
+score.save();
 ```
