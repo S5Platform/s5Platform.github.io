@@ -102,3 +102,36 @@ score.addUnique("skills", "flying");
 score.addUnique("skills", "kungfu");
 score.save();
 ```
+
+### Destroying Objects
+
+`unset`을 이용하면 파일 내의 필드를 삭제할 수 있다.
+
+```
+score.unset("score");
+score.save();
+```
+
+`destroy`를 이용하면 object 자체를 삭제할 수 있다. destory를 이용할 떄는 query를 이용하여 객체를 선택 후에 삭제해야 정상적으로 동작한다.
+
+```
+score.destroy({
+  success: function(score) {
+    // delete success
+    console.log( score );
+  },
+  error: function(score, error) {
+    // delete failed.
+  }
+});
+````
+
+`destroyAll`을 이용하면 여러개의 객체를 삭제할 수 있다.
+
+```
+Parse.Object.destroyAll([object1, object2, object3]).then(function(success) {
+  // All the objects were deleted
+}, function(error) {
+  console.error(error.message)
+});
+```
