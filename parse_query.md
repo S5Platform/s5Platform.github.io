@@ -76,9 +76,39 @@ query.greaterThan("wins", 50);
 query.greaterThanOrEqualTo("wins", 50);
 ```
 
-`containedIn` 을 이용하면 주어진 조건에 해당하는 필드에 대한 조건 검색이 가능하다.
+`containedIn` 을 이용하면 주어진 조건에 포함되는 필드에 대한 조건 검색이 가능하다.
 SQL에서 흔히 사용하는 in 절과 비슷하다고 볼수 있다.
 
 ```
+// James 또는 John 이라는 이름을 가진 객체를 찾기
 query.containedIn("name", ["James", "John"]);
+```
+
+`notContainedIn`을 이용하면 주어진 조건에 포함되지 않는 필드에 대한 조건 검색이 가능하다.
+
+```
+// James, John 둘 다 아닌 이름을 가진 객체를 찾기
+query.notContainedIn("name", ["James", "Elly"]);
+```
+
+여러가지 조건을 동시에 사용해야 하는 경우 Compound Query를 이용해서 해결할 수 있다.
+
+80점이상인 Player와 20점 이하인 Player를 함께 검색하려면 아래와 같이 할수 있다.
+
+var ranked = new Parse.Query("Player");
+ranked.greaterThan("score", 80);
+
+var disqualifies = new Parse.Query("Player");
+disqualifies.lessThan("score", 20);
+
+```
+var mainQuery = Parse.Query.or(ranked, disqualifies);
+mainQuery.find({
+  success: function(results) {
+    // ranked, disqualifies
+  },
+  error: function(error) {
+    // There was an error.
+  }
+});
 ```
