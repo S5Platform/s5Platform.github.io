@@ -1,4 +1,4 @@
-### Parse Client
+## Parse Client
 
 Parse JavaScript SDK를 사용하면 Parse Server 안의 데이터에 쉽게 접근할 수 있다.
 아래 문서를 확인하면, [Parse JS Client](http://docs.parseplatform.org/js/guide/) 보다 자세한 내용을 확인 할 수 있으며, JavaScript SDK의 주요 사용법은 아래와 같다.
@@ -133,5 +133,55 @@ Parse.Object.destroyAll([object1, object2, object3]).then(function(success) {
   // All the objects were deleted
 }, function(error) {
   console.error(error.message)
+});
+```
+
+## Parse Users
+
+`Parse.User`라는 이름의 특별한 클래스를 사용하면 유저관리를 쉽게 사용할 수 있다.
+`Parse.Object`를 확장한 클래스이기 때문에 Parse.Object의 모든 기능을 지원하고 있으며, 특별한 3개의 필드가 추가되어 있다.
+
+- username: The username for the user (required).
+- password: The password for the user (required on signup).
+- email: The email address for the user (optional).
+
+### Signing Up
+신규유저를 생성하기 위해서는 `signUp`을 사용하면 된다.
+신규 유저생성 시에 username과 password는 필수값이므로 반드시 입력해주어야 하는데, username은 동일한 APP내에 유니크해야 한다.
+`set`을 이용하여 다른 정보를 추가할수 있다. 
+
+```
+var user = new Parse.User();
+user.set("username", "james");
+user.set("password", "james1234");
+user.set("email", "james@google.com");
+
+```
+// 다른 정보 추가
+user.set("age", "42");
+user.set("gender", "male")
+
+user.signUp(null, {
+  success: function(user) {
+    console.log( user.id )
+  },
+  error: function(user, error) {
+    // 가입 실패시 로그를 확인
+    console.log( error );
+  }
+});
+```
+
+### Logging In
+생성된 유저를 이용해서 로그인하기 위해서는 `logIn`을 사용하면 된다.
+
+```
+Parse.User.logIn("james", "james1234", {
+  success: function(user) {
+    // 로그인 성공시 이벤트를 수행한다.
+  },
+  error: function(user, error) {
+    // 로그인 실패시, 로그를 확인
+  }
 });
 ```
