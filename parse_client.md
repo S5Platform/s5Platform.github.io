@@ -185,3 +185,47 @@ Parse.User.logIn("james", "james1234", {
   }
 });
 ```
+
+### Current User
+로그인된 현재 사용자의 정보를 가져오려고 할때는 `current()`를 사용하면 된다.
+
+```
+var currentUser = Parse.User.current();
+```
+
+### Resetting Passwords
+
+Parse Server 에는 Password 초기화 기능이 내장되어 있다. 이메일 주소를 인자로 이용하여 `requestPasswordReset` 함수를 호출하면 아래 순서에 의거하여 패스워드를 초기화할수 있는 기능을 제공한다.
+
+*이때 Parse Server 에 이메일 발송을 위한 설정이 완료되어 있어야한다.*
+
+- 전달받은 이메일 주소를 이용하여 임시 Password로 변경한다. 
+- 전달받은 이메일 주소로 패스워드를 초기화할 수 있는 링크를 포함한 이메일을 전송한다.
+- 해당 링크를 클릭하면 패스워드를 초기화할 수 있는 화면이 열린다.
+- 사용자가 신규 패스워드를 입력하면 패스워드를 변경할 수 있다.
+
+```
+Parse.User.requestPasswordReset("email@example.com", {
+  success: function() {
+  // Password reset request was sent successfully
+  },
+  error: function(error) {
+    // Show the error message somewhere
+    alert("Error: " + error.code + " " + error.message);
+  }
+});
+```
+
+### Quering User
+
+원하는 유저를 검색할때는 query를 사용하면 된다. 유저 패스워드 등의 중요 정보가 자동으로 제거된 상태로 결과를 받을 수 있다.
+
+```
+var query = new Parse.Query(Parse.User);
+query.equalTo("gender", "male");
+query.find({
+  success: function(men) {
+    // 
+  }
+});
+```
