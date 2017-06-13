@@ -229,3 +229,40 @@ query.find({
   }
 });
 ```
+
+## Files
+
+`Parse.File` 를 이용하면 쉽게 파일 객체를 생성할 수 있다. base64를 사용하는 방법과 byte Array를 사용하는 방법이 있다.
+
+```
+var base64 = "V29ya2luZyBhdCBQYXJzZSBpcyBncmVhdCE=";
+var parseFile = new Parse.File("myfile.txt", { base64: base64 }); 
+```
+
+```
+var bytes = [ 0xBE, 0xEF, 0xCA, 0xFE ];
+var parseFile = new Parse.File("myfile.txt", bytes);
+```
+
+생성한 파일객체를 save 하면 파일을 저장할 수 있다.
+Parse Server의 DB로 MongoDB를 사용하고 있다면, GridFS에 저장이 되며,
+PostgreSQL을 사용하고 있다면, Amazon S3 등의 별도 파일저장소를 사용해야 저장이 가능하다.
+
+```
+parseFile.save().then(function() {
+  // The file has been saved to Parse.
+}, function(error) {
+  // The file either could not be read, or could not be saved to Parse.
+});
+```
+
+파일 객체를 `Parse.Object`에 추가하면 해당 객체를 save할 경우 자동으로 파일이 업로드되면서 파일 객체가 생성된다.
+
+```
+var score = Parse.Object.extend("Score");
+score.set("score", 10);
+score.set("dataFile", parseFile);
+score.save();
+```
+
+
