@@ -232,16 +232,21 @@ query.find({
 
 ## Files
 
+### Creating a Parse.File
 `Parse.File` 를 이용하면 쉽게 파일 객체를 생성할 수 있다. base64를 사용하는 방법과 byte Array를 사용하는 방법이 있다.
+첫번째 인자로를 파일이름을 주도록 되어 있는데,
+파일 업로드시에 유니크한 식별자를 생성하기 때문에 파일 이름이 충돌날 것에 대한 고려를 할 필요는 없다.
+
+파일이름을 세팅할 때는, 확장자를 함께 주는 것이 업로드 완료된 파일에 접근하기 용이하다.
 
 ```
 var base64 = "V29ya2luZyBhdCBQYXJzZSBpcyBncmVhdCE=";
-var parseFile = new Parse.File("myfile.txt", { base64: base64 }); 
+var parseFile = new Parse.File("profile.png", { base64: base64 }); 
 ```
 
 ```
 var bytes = [ 0xBE, 0xEF, 0xCA, 0xFE ];
-var parseFile = new Parse.File("myfile.txt", bytes);
+var parseFile = new Parse.File("profile.png", bytes);
 ```
 
 생성한 파일객체를 save 하면 파일을 저장할 수 있다.
@@ -265,4 +270,16 @@ score.set("dataFile", parseFile);
 score.save();
 ```
 
+### Retrieving File Contents
 
+생성된 파일 객체는 `url` 함수를 사용하면 컨텐츠를 가져올 수 있다.
+이미지 형태의 파일인 경우 아래와 같이 src에 세팅하면 이미지를 바로 표시할 수 있다.
+
+```html
+<img id="profileImg" src="" />
+```
+
+```javascript
+var imageUrl = profilePhoto.url();
+$("profileImg")[0].src = imageUrl;
+```
