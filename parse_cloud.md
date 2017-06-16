@@ -15,6 +15,8 @@ Cloud Code 를 구현하기 위해서는 Parse Server를 실행할 때 아래와
 }
 ```
 
+#### Cloud Functions
+
 Parse Cloude 모듈을 관리할 `index.js` 는 아래와 같이 작성한다. 모듈은 아래에 추가로 작성할 수 있다.
 
 ```
@@ -42,4 +44,42 @@ Parse.Cloud.run('hello', {}).then(function(result) {
 	console.log( result.msg );
 });
 
+```
+
+Parse Cloud 함수 내에서는 Parse Client와 동일한 방법으로 데이터에 접근할 수 있다.
+
+Parse Object 에서 자체적으로 제공하지 않는 데이터를 가공해야 할 경우에 유용하다.
+
+아래 코드는 일주일 
+
+```
+Parse.Cloud.define("analyseScore", function(request, response) {
+  var query = new Parse.Query("GameScore");
+  query.equalTo("status", "ended");
+  query.find({
+    success: function(results) {
+      var sum = 0;
+      var max = 0;
+      var min = 0;
+
+      for (var i = 0; i < results.length; ++i) {
+      	var point = results[i].get("point");
+        sum += point;
+
+        if( max < point ){
+        	max = point;
+        }
+
+        if( min > point ){
+        	min = point;
+        }
+      }
+
+      response.success({sum:sum, min:min, max:max, avg: (sum / results.length ) });
+    },
+    error: function() {
+      response.error("tour lookup failed");
+    }
+  });
+});
 ```
