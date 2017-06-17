@@ -1,3 +1,9 @@
+---
+title: Parse Cloud
+category: parse
+order: 5
+---
+
 ### Parse Cloud Code
 
 `Parse Cloud`는 Client에서 처리할 수 없는 복잡한 로직을 서버에서 처리할 수 있도록 제공하는 기능이다.

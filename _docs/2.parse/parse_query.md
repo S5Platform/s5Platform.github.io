@@ -1,3 +1,9 @@
+---
+title: Parse Query
+category: parse
+order: 4
+---
+
 ## Parse Query
 
 `Parse Query`를 이용하면 보다 정교하게 원하는 데이터를 검색할 수 있다.

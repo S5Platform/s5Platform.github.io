@@ -1,3 +1,9 @@
+---
+title: Parse Client
+category: parse
+order: 3
+---
+
 ## Parse Client
 
 Parse JavaScript SDK를 사용하면 Parse Server 안의 데이터에 쉽게 접근할 수 있다.
