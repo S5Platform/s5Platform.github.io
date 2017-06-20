@@ -37,7 +37,7 @@ export VERBOSE=1  # logging verbose
 ```
 
 채널서버는 XPush의 메시지 전송 기능을 활용한 채팅 서버이다.
-접속 정보를 보관하기 위해 Redis를 활용하고 있기 때문에 redis의 설치가 필요하다.
+접속 정보를 보관하기 위해 Redis와 Zookeeper를 활용하고 있기 때문에 redis의 설치가 필요하다.
 
 Redis 설치 후, 아래 명령어를 통해 실행할 수 있다.
 

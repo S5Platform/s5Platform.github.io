@@ -44,4 +44,24 @@ idx(props, _ => _.user.friends[0].friends)
 
 ## Introducing Create React Native App
 
-React Native Project 를 쉽게 시작할 수 있도록 도움을 주는 [Create React App](https://github.com/react-community/create-react-native-app) 이라는 프로젝트가 공개되었다. Create React Native App 을 이용하면 Xcode 나 Android Studio 를 설치하지 않아도 Windows나 Linux 에서 React Native App을 개발할 수 있다. [Expo](https://expo.io/)를 사용하기 때문에 가능하다. The Expo app은 Camera나 Video, 연락처와 Facebook 인증과 같은 유명한 네이티브 모듈을 포함하고 있다. Expo에 기본적으로 포함되어 있지 않은 모듈의 경우는 `npm run eject`를 이용하면 사용이 가능하다.
+React Native Project 를 쉽게 시작할 수 있도록 도움을 주는 [Create React App](https://github.com/react-community/create-react-native-app) 프로젝트가 공개되었다. Create React Native App 을 이용하면 개발장비에 Xcode 나 Android Studio 를 설치하지 않아도 Windows나 Linux 에서 React Native App을 개발할 수 있다. 
+
+```bash
+npm i -g create-react-native-app
+create-react-native-app my-project
+cd my-project
+npm start
+```
+
+`create-react-native-app`으로 생성된 프로젝트를 실행하면 아래와 같이 QR Code 가 나오는데,
+
+![QR Code](/images/qr.png)
+
+[Expo App](https://expo.io/tools)을 통해 해당 QR Code 를 인식시키면 해당 디바이스에서 테스트가 가능하다.
+
+*이때 동일 네트워크 안에 있어야 한다.*
+
+`Expo app`은 Camera나 Video, 연락처와 Facebook 인증과 같은 유명한 네이티브 모듈을 포함하고 있으며, Expo에 기본적으로 포함되어 있지 않은 모듈의 경우는 `npm run eject`를 이용하면 사용이 가능하다.
+
+
+
