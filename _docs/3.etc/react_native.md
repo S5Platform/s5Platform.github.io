@@ -55,7 +55,7 @@ npm start
 
 `create-react-native-app`으로 생성된 프로젝트를 실행하면 아래와 같이 QR Code 가 나오는데,
 
-![QR Code](/images/qr.png)
+![qr](/images/qr.png)
 
 [Expo App](https://expo.io/tools)을 통해 해당 QR Code 를 인식시키면 해당 디바이스에서 테스트가 가능하다.
 
