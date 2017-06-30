@@ -12,6 +12,9 @@ order: 1
 -	채널 관리 : 채널조회, 채널삭제, 사용자초대
 -	메시지 관리 : 메세지조회, 메시지 전송, 이미지 전송
 
+
+![stalk_im](/images/stalk_im.png)
+
 #### STALK-SERVER 의 설치
 
 ```
