@@ -41,9 +41,9 @@ require('./hello.js');
 Parse.Cloud.define("hello", function(request, response) {
 	response.success({'msg':'Hello World'});
 });
+```
 
 작성된 Cloud Code 는 Parse Client 에서 아래와 같이 호출할 수 있다.
-
 
 ```
 Parse.Cloud.run('hello', {}).then(function(result) {
@@ -56,7 +56,7 @@ Parse Cloud 함수 내에서는 Parse Client와 동일한 방법으로 데이터
 
 Parse Object 에서 자체적으로 제공하지 않는 데이터를 가공해야 할 경우에 유용하다.
 
-아래 코드는 일주일 
+아래 코드는 게임이 완료된 점수들으 최대값과 최저값, 총합과 평균을 계산하는 Cloud function 이다. 
 
 ```
 Parse.Cloud.define("analyseScore", function(request, response) {
