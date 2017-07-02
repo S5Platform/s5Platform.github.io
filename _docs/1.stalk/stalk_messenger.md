@@ -13,3 +13,16 @@ STALK-MESSENGER는 STALK-SERVER의 API를 사용하여 React Native 기반으로
 -	채널관리 : 채널조회, 채널삭제, 사용자초대, 채널 이미지 표시
 -	메세지관리 : 이전 메시지 조회, 메시지 전송, 이미지 전송, 푸시 알림
 
+## STALK-MESSENGER의 설치와 실행
+
+```
+git clone https://github.com/S5Platform/stalk-messenger
+cd stalk-messenger
+npm install
+```
+
+
+```
+// ios에서 실행하기
+react-native run-os
+```
