@@ -20,3 +20,21 @@ Parse는 모바일 앱을 쉽게 만들 수 있게 도움을 주는 클라우드
 Facebook은 2016년 1월 Parse 서비스를 1년 내에 서비스를 종료한다고 발표했다. 그 이후 더 이상 회원가입을 받지 않고 있으며, 이미 사용중인 회원들에 한해 1년간 서비스를 이전할 수 있는 기간을 부여했다. 이와 동시에 Parse에서 사용할 수 있었던 주요 기능들을 직접 설치해서 사용할 수 있도록 Parse Server 라는 이름의 오픈소스를 공개했다. 공개된 Parse Server와 MongoDB를 자체적으로 설치하고, Parse에서 제공한 데이터 이관툴을 이용하면 기존의 Parse 서비스와 비슷하게 운영을 할 수 있다.
 
 [Parse Server](https://github.com/parse-community/parse-server)
+
+### Parse Server 의 설치와 실행
+
+Parse Server를 설치하기 위해서는 아래 명령어를 활용하여 쉽게 설치할 수 있다.
+
+```
+npm install -g parse-server
+```
+
+Parse Server 에서 제공하는 DB 종류로는 MongoDB와 PostgreSQL이 있다. 둘 증 하나를 설치한 후에 Parse Server를 아래와 같이 시작할 수 있다.
+
+- appId : 고유의 키
+- masterKey :고유의 키
+- databaseURI : 사용하려는 DB의 접속정보
+
+```
+parse-server --appId APPLICATION_ID --masterKey MASTER_KEY --databaseURI mongodb://localhost/test
+```
