@@ -34,7 +34,10 @@ Parse Server 에서 제공하는 DB 종류로는 MongoDB와 PostgreSQL이 있다
 - appId : 고유의 키
 - masterKey :고유의 키
 - databaseURI : 사용하려는 DB의 접속정보
+- filesAdapter : 업로드되는 파일을 저장하기 위한 어탭터 설정으로 S3Adapter 등이 있다.
 
 ```
 parse-server --appId APPLICATION_ID --masterKey MASTER_KEY --databaseURI mongodb://localhost/test
 ```
+
+> 이때, MongoDB를 사용하지 않는 경우에는 파일 저장을 위해 filesAdapter 설정을 반드시 추가해야한다.
