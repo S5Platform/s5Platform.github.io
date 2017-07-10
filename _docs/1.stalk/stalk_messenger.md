@@ -24,5 +24,10 @@ npm install
 
 ```
 // ios에서 실행하기
-react-native run-os
+react-native run-ios
+```
+
+```
+// android에서 실행하기
+react-native run-android
 ```

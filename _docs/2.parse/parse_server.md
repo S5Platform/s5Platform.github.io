@@ -35,9 +35,32 @@ Parse Server 에서 제공하는 DB 종류로는 MongoDB와 PostgreSQL이 있다
 - masterKey :고유의 키
 - databaseURI : 사용하려는 DB의 접속정보
 - filesAdapter : 업로드되는 파일을 저장하기 위한 어탭터 설정으로 S3Adapter 등이 있다.
+- push : push notification 설정을 한다.
 
 ```
 parse-server --appId APPLICATION_ID --masterKey MASTER_KEY --databaseURI mongodb://localhost/test
 ```
 
 > 이때, MongoDB를 사용하지 않는 경우에는 파일 저장을 위해 filesAdapter 설정을 반드시 추가해야한다.
+
+### Parse Server의 활용
+
+Parser Server는 `Express`에 마운트가 가능하다.
+
+아래 코드와 같이 ParseServer를 생성하면 Express에서 Parse Server의 API를 추가할 수 있다.
+
+```
+var app = express();
+
+var api = new ParseServer({
+  databaseURI: 'mongodb://your.mongo.uri',
+  cloud: './cloud/main.js',
+  appId: 'myAppId',
+  fileKey: 'myFileKey',
+  masterKey: 'mySecretMasterKey',
+  push: { ... }, // See the Push wiki page
+  filesAdapter: ...,
+});
+
+app.use( '/parse', api);
+```
