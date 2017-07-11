@@ -24,6 +24,15 @@ var query = new Parse.Query(Score);
 query.equalTo("playerName", "James");
 ```
 
+해당 필드가 `ref` 유형인 경우에는 찾으려 id로 새로운 객체를 생성하여 쿼리에 추가하는 방법으로 가능하다.
+
+```
+var player = Parse.Object.extend("Player");
+player.id = 'aB15Tx';
+
+query.equalTo("player", player );
+```
+
 `notEqualTo` 를 사용하면 해당 필드의 값이 일치하지 않는 객체를 검색할 수 있다.
 
 ```
@@ -43,7 +52,7 @@ query.greaterThan("score", 100);
 query.find({
   success: function(results) {
 
-    // results 는 array gㅕㅇ태
+    // results 는 array 형태
     for (var i = 0; i < results.length; i++) {
       var object = results[i];
       console.log(object.id + ' - ' + object.get('playerName'));
@@ -101,13 +110,13 @@ query.notContainedIn("name", ["James", "Elly"]);
 
 80점이상인 Player와 20점 이하인 Player를 함께 검색하려면 아래와 같이 할수 있다.
 
+```
 var ranked = new Parse.Query("Player");
 ranked.greaterThan("score", 80);
 
 var disqualifies = new Parse.Query("Player");
 disqualifies.lessThan("score", 20);
 
-```
 var mainQuery = Parse.Query.or(ranked, disqualifies);
 mainQuery.find({
   success: function(results) {
