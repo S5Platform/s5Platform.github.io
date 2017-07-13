@@ -21,11 +21,14 @@ cd stalk-messenger
 npm install
 ```
 
+ios에서 실행하기 위해서는 ios 기반의 시뮬레이터가 설치되어 있어야한다.
 
 ```
 // ios에서 실행하기
 react-native run-ios
 ```
+
+android에서 실행하기 위해서는 android emulator가 설치되어 있어야한다.
 
 ```
 // android에서 실행하기

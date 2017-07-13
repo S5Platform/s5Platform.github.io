@@ -89,3 +89,42 @@ Parse.Cloud.define("analyseScore", function(request, response) {
   });
 });
 ```
+
+#### Job Functions
+
+`job function` 을 활용하면 배치성 작업에 대한 로그를 기록할 수 있다.
+
+```
+Parse.Cloud.job("", function(request,response){
+  var date = new Date();
+  date.setDate(date.getDate() - 8);
+
+  var query = new Parse.Query(Reservations);
+  query.equalTo( "status", "yet");
+
+  query.find().then(
+    (results) => {
+
+      if( results.length == 0 ){
+        response.success('done, '+results.length+' cnt');
+        return;
+      }
+
+      for( var inx in results ){
+        results[inx].set( "status", "done" );
+      }
+
+      Parse.Object.saveAll(results, {
+        success: function(objs) {
+          response.success('done : '+objs.length+' count');
+        },
+        error: function(error) {
+          response.error('error');
+        }
+      });
+
+    }, (result, error) => { response.error('error'); }
+  );
+
+});
+```

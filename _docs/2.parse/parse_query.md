@@ -64,7 +64,6 @@ query.find({
 });
 ````
 
-
 `ascending`과 `descending`을 사용하면 해당 필드로 정렬하여 검색할 수 있다.
 
 ```
