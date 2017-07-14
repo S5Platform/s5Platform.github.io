@@ -25,8 +25,11 @@ npm install
 #### STALK-SERVER 의 실행
 
 세션서버는 Parse Server 의 클라우드 기능을 활용한 위한 API 서버이다. 
-데이터 저장을 위해 Mongo DB 를 활용하기 때문에
-실행을 위해서는 [Mongo DB](https://www.mongodb.com/) 가 사전에 설치되어 있어야 한다.
+데이터 저장을 위해 Mongo DB나 PostgreSQL을 활용할 수 있다.
+기본적으로는 MongoDB를 활용하도록 되어 있기 때문에
+STALK SERVER의 실행을 위해서는 [Mongo DB](https://www.mongodb.com/) 가 사전에 설치되어 있어야 한다.
+
+*mongoDB 실행 시 bindIp 를 0.0.0.0 으로 세팅을 해야 localhost 이외의 다른 IP에서도 접근이 가능하다.*
 
 Mongo DB 설치 후, 아래 명령어를 통해 실행할 수 있다.
 
@@ -43,3 +46,5 @@ Redis와 Zookeeper 설치 후, 아래 명령어를 통해 실행할 수 있다.
 ```
 ./bin/start --channel
 ```
+
+`--config` 옵션을 이용하여 config file을 이용하여 서버를 실행할 수 있다.
