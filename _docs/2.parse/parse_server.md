@@ -49,6 +49,37 @@ parse-server --appId APPLICATION_ID --masterKey MASTER_KEY --databaseURI mongodb
 - GCSAdapter : Google Cloud Storage를 이용하여 파일을 저장할 경우 설정한다.
 
 
+### S3Adapter의 설정
+
+S3Adapter를 사용하기 위해서는 [S3Adapter](https://github.com/parse-server-modules/parse-server-s3-adapter)모듈을 추가로 설치해야 한다.
+
+설치가 완료되면 아래와 같이 *S3_ACCESS_KEY* 와 *S3_SECRET_KEY*를 환경변수로 추가해주어야 한다.
+
+```
+export S3_ACCESS_KEY=YOUR_S3_ACCESS_KEY
+export S3_SECRET_KEY=YOUR_S3_SCREET_JEY
+```
+
+parse server를 실행할때 config는 아래와 같다.
+
+```
+  "filesAdapter": {
+    "module": "parse-server-s3-adapter",
+    "options": {
+      "bucket": "my_bucket",
+      // optional:
+      "region": 'us-east-1', // default value
+      "bucketPrefix": '', // ㅍ
+      "directAccess": false, // default value
+      "baseUrl": null, // default value
+      "baseUrlDirect": false, // default value
+      "signatureVersion": 'v4', // default value
+      "globalCacheControl": null, // default value. Or 'public, max-age=86400' for 24 hrs Cache-Control
+      "ServerSideEncryption": 'AES256|aws:kms' //AES256 or aws:kms, or if you do not pass this, encryption won't be done
+    }
+  }
+```
+
 ### Parse Server의 활용
 
 Parser Server는 `Express`에 마운트가 가능하다.
