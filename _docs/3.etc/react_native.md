@@ -64,4 +64,16 @@ npm start
 `Expo app`은 Camera나 Video, 연락처와 Facebook 인증과 같은 유명한 네이티브 모듈을 포함하고 있으며, Expo에 기본적으로 포함되어 있지 않은 모듈의 경우는 `npm run eject`를 이용하면 사용이 가능하다.
 
 
+### React Native Release
 
+React Native는 1달에 한번 정식으로 Release 되고 있다. 이 중에서 이번 버젼과의 호환성을 유지하지 못하는 주요 변경점들에 대해 정리하였다.
+ 
+ - 0.46.4 : `react-native-xcode.sh` 위치가 변경되었다. Build Phase의 React Native 설정을 아래와 같이 변경해야한다.
+
+```
+export NODE_BINARY=node
+../node_modules/react-native/scripts/react-native-xcode.sh
+``
+
+ - 0.45.1 : `react-native` 모듈에서 `react` 모듈을 import 할때 에러를 발생시킨다.
+ - 0.44.3 : `MapViewIOS`가 deprecated 되었다.
