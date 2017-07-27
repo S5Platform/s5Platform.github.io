@@ -69,7 +69,7 @@ parse server를 실행할때 config는 아래와 같다.
       "bucket": "my_bucket",
       // optional:
       "region": 'us-east-1', // default value
-      "bucketPrefix": '', // ㅍ
+      "bucketPrefix": '', //
       "directAccess": false, // default value
       "baseUrl": null, // default value
       "baseUrlDirect": false, // default value
@@ -79,6 +79,12 @@ parse server를 실행할때 config는 아래와 같다.
     }
   }
 ```
+
+- bucket : s3에 설정한 bucket 명
+- region : s3에 설정된 region 명
+- directAccess : s3의 url에 직접 접속할때 사용한다. 해당 설정이 true면 s3 URL을 이용해서 직접 접속하게 된다.
+- bucketPrefix : 업로드 할때 사용되는 default 폴더
+- baseUrl : 업로드 완료 후 결과가 되는 url
 
 ### Parse Server의 활용
 
