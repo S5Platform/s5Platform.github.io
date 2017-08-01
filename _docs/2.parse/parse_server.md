@@ -86,6 +86,36 @@ parse server를 실행할때 config는 아래와 같다.
 - bucketPrefix : 업로드 할때 사용되는 default 폴더
 - baseUrl : 업로드 완료 후 결과가 되는 url
 
+### Email Adapter의 설정
+
+Parse Server에서는 `email 인증`과 `패스워드 초기화` 등의 메일링 기능을 제공하고 있다. 해당 기능을 사용하기 위해서는 
+parse server의 옵션 중에 *verifyUserEmails* 설정과 *emailAdapter* 설정이 되어 있어야 한다.
+
+사용할 수 있는 email adapter의 종류로는 아래와 같은 것들이 있다.
+
+- [parse-server-postmark-adapter](https://www.npmjs.com/package/parse-server-postmark-adapter)
+- [parse-server-sendgrid-adapter](https://www.npmjs.com/package/parse-server-sendgrid-adapter)
+- [parse-server-mandrill-adapter](https://www.npmjs.com/package/parse-server-mandrill-adapter)
+- [parse-server-simple-ses-adapter](https://www.npmjs.com/package/parse-server-simple-ses-adapter)
+- [parse-server-mailgun-adapter-template](https://www.npmjs.com/package/parse-server-mailgun-adapter-template)
+- [parse-server-mailjet-adapter](https://www.npmjs.com/package/parse-server-mailjet-adapter)
+- [simple-parse-smtp-adapter](https://www.npmjs.com/package/simple-parse-smtp-adapter)
+
+
+emailAdapter 설정 중 mailgun apapter의 설정은 다음과 같다.
+
+```
+"emailAdapter": {
+  "module": "parse-server-mailgun-adapter-template",
+  "options": {
+    "displayName": "YourAppName",
+    "fromAddress": "no-reply@yourdomain.com",
+    "domain": "yourdomain.com",
+    "apiKey": "mail-gun-api-key"
+  }
+}
+```
+
 ### Parse Server의 활용
 
 Parser Server는 `Express`에 마운트가 가능하다.
