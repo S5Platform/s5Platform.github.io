@@ -116,6 +116,33 @@ emailAdapter 설정 중 mailgun apapter의 설정은 다음과 같다.
 }
 ```
 
+### PushAdapter 설정
+
+Parse Server를 이용하면 GCM(Google Cloud Messaging)과 APNS(Apple Push Notification Service)를 이용하여 Push Notification 메시지를 발송할 수 있다.
+
+Android 와 ios 일 경우, 각각 발송을 위한 key 값을 설정해주어야 한다.
+
+
+Android의 경우 google console 에서 GCM 사용 설정 시에 생성되는 senderId와 apiKey를 입력해준다.
+```
+// android senderId와 apiKey 설정 ( server 용 )
+android: {
+  senderId: '...',
+  apiKey: '...'
+}
+```
+
+ios의 경우 Apple Push Services를 위한 인증서를 생성한 후에 저장한 인증서의 위치와, 생성시 설정한 `passphrase`, Push를 받을 app의 bundleId를 입력해주면 된다. 인증서의 type에 따라 `production`을 true or false로 설정하면 된다.
+
+```
+ios: {
+  pfx: '/file/path/to/XXX.p12',
+  passphrase: '', // optional password to your p12/PFX
+  bundleId: '',
+  production: false
+}
+```
+
 ### Parse Server의 활용
 
 Parser Server는 `Express`에 마운트가 가능하다.
@@ -131,7 +158,7 @@ var api = new ParseServer({
   appId: 'myAppId',
   fileKey: 'myFileKey',
   masterKey: 'mySecretMasterKey',
-  push: { ... }, // See the Push wiki page
+  push: { ... }, // 위 PushAdapter 설정 참고
   filesAdapter: ...,
 });
 
