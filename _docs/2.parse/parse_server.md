@@ -102,8 +102,6 @@ parse server의 옵션 중에 *verifyUserEmails* 설정과 *emailAdapter* 설정
 - [simple-parse-smtp-adapter](https://www.npmjs.com/package/simple-parse-smtp-adapter)
 
 
-emailAdapter 설정 중 mailgun apapter의 설정은 다음과 같다.
-
 ```
 "emailAdapter": {
   "module": "parse-server-mailgun-adapter-template",
@@ -132,13 +130,13 @@ android: {
 }
 ```
 
-ios의 경우 Apple Push Services를 위한 인증서를 생성한 후에 저장한 인증서의 위치와, 생성시 설정한 `passphrase`, Push를 받을 app의 bundleId를 입력해주면 된다. 인증서의 type에 따라 `production`을 true or false로 설정하면 된다.
+ios의 경우 Apple Push Services를 위한 인증서를 생성한 후에 저장한 인증서의 위치와, 생성시 설정한 `passphrase`, Push를 받을 app의 bundleId를 입력해주면 된다. 인증서의 type에 따라 `production`을 true or false로 설정하면 된다. production 일 경우 실제 운영환경의 APNS를 사용하게 된다.
 
 ```
 ios: {
   pfx: '/file/path/to/XXX.p12',
   passphrase: '', // optional password to your p12/PFX
-  bundleId: '',
+  topic: '',
   production: false
 }
 ```
