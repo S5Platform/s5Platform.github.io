@@ -15,7 +15,7 @@ order: 1
 
 ![stalk_im](/images/stalk_im.png)
 
-#### STALK-SERVER 의 설치
+#### STALK SERVER 의 설치
 
 ```
 git clone https://github.com/S5Platform/stalk-messenger-server
@@ -48,3 +48,12 @@ Redis와 Zookeeper 설치 후, 아래 명령어를 통해 실행할 수 있다.
 ```
 
 `--config` 옵션을 이용하여 config file을 이용하여 서버를 실행할 수 있다.
+
+config 파일에 포함될 수 있는 주요 설정으로는 아래를 참고한다.
+
+#### STALK SERVER의 환경설정
+
+- zookeeper : 부하분산을 위해 사용할 zookeeper의 주소를 설정한다.
+- redis : 캐싱을 위해 사용할 redis의 접속 정보를 설정한다.
+- serverName : channelServer가 실행될 때의 서버 네임을 지정한다.
+- channelProtocol : 채널 서버가 https를 사용하는 경우 true로 설정한다.
