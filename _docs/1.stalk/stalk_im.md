@@ -56,4 +56,21 @@ config 파일에 포함될 수 있는 주요 설정으로는 아래를 참고한
 - zookeeper : 부하분산을 위해 사용할 zookeeper의 주소를 설정한다.
 - redis : 캐싱을 위해 사용할 redis의 접속 정보를 설정한다.
 - serverName : channelServer가 실행될 때의 서버 네임을 지정한다.
-- channelProtocol : 채널 서버가 https를 사용하는 경우 true로 설정한다.
+- channelProtocol : 채널 서버가 https를 사용하는 경우 https 로 설정한다.
+
+
+`--serverName` 을 설정하면 설정한 채널 서버의 네임을 활용하여 haproxy를 이용한 채널서버 분배가 가능하다.
+아래는 serverName 을 활용하여 채널 서버를 haproxy와 연결한 예시이다.
+채널서버 접속시 serverName을 파라미터 값으로 넘기고 해당 파라미터를 이용하여 정해진 채널 서버로 라우팅시킬 수 있다.
+
+
+```
+frontend http
+  bind *:8000
+  acl app1 urlp(serverName) -i app1
+  acl app2 urlp(serverName) -i app2
+
+  use_backend srvs_app1    if app1
+  use_backend srvs_app2    if app2
+  use_backend session_server #if !app1 !app2
+```
