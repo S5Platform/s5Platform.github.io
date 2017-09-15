@@ -75,5 +75,6 @@ export NODE_BINARY=node
 ../node_modules/react-native/scripts/react-native-xcode.sh
 ``
 
+ - 0.48   : RCTDeviceEventEmitter 가 fatal warning을 노출하게 되었다.
  - 0.45.1 : `react-native` 모듈에서 `react` 모듈을 import 할때 에러를 발생시킨다.
  - 0.44.3 : `MapViewIOS`가 deprecated 되었다.
