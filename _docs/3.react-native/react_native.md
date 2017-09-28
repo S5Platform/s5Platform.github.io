@@ -32,3 +32,15 @@ react-native init SampleApp
 cd SampleApp
 react-native run-ios
 ```
+
+### React Navigation
+
+0.44 버젼 부터 Navigator가 deprecated 되었다. Navigation을 보다 쉽게 실행할 수 있게 reactnavigation.org 에서 Navigation을 [React Navigation](https://reactnavigation.org/)을 공개하였다. 아래와 같은 방법으로 설치할 수 있다.
+
+```
+yarn add react-navigation
+```
+
+```
+npm install --save react-navigation
+```
