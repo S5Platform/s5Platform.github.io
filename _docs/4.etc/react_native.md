@@ -74,6 +74,8 @@ React Native는 1달에 한번 정식으로 Release 되고 있다. 이 중에서
 export NODE_BINARY=node
 ../node_modules/react-native/scripts/react-native-xcode.sh
 ``
+ - 0.49   : RCTBatchedBridge 가 deprecation warning을 노출하게 되었다.
+          : index.ios.js 와 index.android.js가 index.js 로 통합되었다.
 
  - 0.48   : RCTDeviceEventEmitter 가 fatal warning을 노출하게 되었다.
  - 0.45.1 : `react-native` 모듈에서 `react` 모듈을 import 할때 에러를 발생시킨다.
