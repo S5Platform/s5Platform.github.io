@@ -40,7 +40,7 @@ react-native run-ios
 
 ### Redux
 
-Redux는 자바스크립트 앱을 위한 예측 가능한 상태 컨테이너이다. [Flux 아키텍쳐]( )의 사상을 발전시킨 개념인데, store , reducer, action 이라는 3가지의 개념이 존재한다.
+Redux는 자바스크립트 앱을 위한 예측 가능한 상태 컨테이너이다. [Flux 아키텍쳐]()의 사상을 발전시킨 개념인데, store , reducer, action 이라는 3가지의 개념이 존재한다.
 
 - store : 앱의 상태 전부는 하나의 store라는 객체 트리에 저장된다.
 - action : 상태를 변경하기 위해서는 action을 통해서만 가능하다.
@@ -88,3 +88,34 @@ npm install --save react-navigation
 - TabNavigator : TabBar를 이용하여 사용자가 여러개의 화면 중 하나를 선택할 수 있다.
 
 - DrawerNavigator : Drawer 를 이용하며 화면 왼쪽이나 오른쪽애서 슬라이드 되면서 새로운 화면이 나타난다.
+
+#### StackNavigator
+
+default로 StackNavigator는 iOS 와 Android의 Look&Feel에 유사하도록 설정 되어 있다. 새로운 화면으로 전환될때 iOS의 경우는 화면의 오른쪽에서 슬라이딩 되면서 보여지게 되고, Android의 경우는 Modal과 비슷한 형태의 화면이 화면 하단에서 올라오도록 되어 있다.
+
+```
+const RootStack = StackNavigator(
+  {
+    // Router Options
+    Home: {
+      screen: HomeScreen,
+    },
+    Profile: {
+      screen: ProfileScreen,
+    },
+  },
+  {
+    // Visual Options
+    headerMode: 'none',
+    mode: 'card'
+  }
+
+);
+```
+
+StacKNavigator에 설정할 수 있는 Visual 설정은 아래와 같은 것들이 있다.
+
+- mode : 화면전환할 때의 옵션을 선택하는 것으로 *card*와 *modal*이 있다. *card* 의 경우 기본적인 화면 전환을 의미하며, *modal* 옵션은 iOS에서만 동작하는 option으로 화면 아래에서 올라오면서 화면이 전환된다.
+
+
+- headerMode : 헤더 부분을 어떻게 표현할 것인가에 대한 옵션으로 *none*의 경우 헤더를 표현하지 않게 되고, *float*은 iOS에서의 기본 옵션, *screen*은 *android*에서의 기본 옵션이다.
