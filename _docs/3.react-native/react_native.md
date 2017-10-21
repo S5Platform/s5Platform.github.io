@@ -117,5 +117,47 @@ StacKNavigator에 설정할 수 있는 Visual 설정은 아래와 같은 것들�
 
 - mode : 화면전환할 때의 옵션을 선택하는 것으로 *card*와 *modal*이 있다. *card* 의 경우 기본적인 화면 전환을 의미하며, *modal* 옵션은 iOS에서만 동작하는 option으로 화면 아래에서 올라오면서 화면이 전환된다.
 
-
 - headerMode : 헤더 부분을 어떻게 표현할 것인가에 대한 옵션으로 *none*의 경우 헤더를 표현하지 않게 되고, *float*은 iOS에서의 기본 옵션, *screen*은 *android*에서의 기본 옵션이다.
+
+#### TabNavigator
+
+TabNavigator는 TabBar를 이용하여 화면을 구성할 때 사용할 수 있는 컴포넌트이다. navigationOption으로 Tab에서 사용할 Title과 Icon을 설정할 수 있다.
+
+
+```
+const RootStack = TabNavigator(
+  {
+    // Router Options
+    Home: {
+      screen: HomeScreen,
+
+      // Navigation Options
+      navigationOptions: {
+        tabBarLabel: 'Home',
+        tabBarIcon: ({ tintColor }) => <Icon name={'people'} color={tintColor} />
+      },
+    },
+    Profile: {
+      screen: ProfileScreen,
+      navigationOptions: {
+        tabBarLabel: 'Profile',
+        tabBarIcon: ({ tintColor }) => <Icon name={'chatbubbles'} color={tintColor} />
+      },
+    },
+  },
+  {
+    tabBarComponent: 'TabBarBottom',
+    tabBarPosition: 'top',
+    animationEnabled: true,
+    tabBarOptions: {
+      activeTintColor: '#e91e63',
+      showLabel: true
+    }
+  }
+);
+```
+
+TabNavigator에서 설정할 수 있는 Visual 설정은 아래와 같은 것들이 있다.
+
+- tabBarPosition : *top* 이나 *bottom* 으로 설정이 가능하다.
+- tabBarOptions : TabBar의 설정이 가능하다.
