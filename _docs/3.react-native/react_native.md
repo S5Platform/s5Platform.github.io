@@ -161,3 +161,84 @@ TabNavigator에서 설정할 수 있는 Visual 설정은 아래와 같은 것들
 
 - tabBarPosition : *top* 이나 *bottom* 으로 설정이 가능하다.
 - tabBarOptions : TabBar의 설정이 가능하다.
+
+#### DrawerNavigator
+
+DrawerNavigator는 왼쪽이나 오른쪽에서 슬라이드하면서 나오는 Drawer를 구현할때 사용할수 있는 Component이다.
+
+```
+const MyNavScreen = ({ navigation, banner }) => (
+  <ScrollView style={styles.container}>
+    <SampleText>{banner}</SampleText>
+    <Button
+      onPress={() => navigation.navigate('DrawerOpen')}
+      title="Open drawer"
+    />
+    <Button onPress={() => navigation.goBack(null)} title="Go back" />
+  </ScrollView>
+);
+
+const InboxScreen = ({ navigation }) => (
+  <MyNavScreen banner={'Inbox Screen'} navigation={navigation} />
+);
+
+InboxScreen.navigationOptions = {
+  drawerLabel: 'Inbox',
+  drawerIcon: ({ tintColor }) => (
+    <MaterialIcons
+      name="move-to-inbox"
+      size={24}
+      style={{ color: tintColor }}
+    />
+  ),
+};
+
+const DraftsScreen = ({ navigation }) => (
+  <MyNavScreen banner={'Drafts Screen'} navigation={navigation} />
+);
+
+DraftsScreen.navigationOptions = {
+  drawerLabel: 'Drafts',
+  drawerIcon: ({ tintColor }) => (
+    <MaterialIcons name="drafts" size={24} style={{ color: tintColor }} />
+  ),
+};
+
+const DrawerExample = DrawerNavigator(
+  {
+    Inbox: {
+      path: '/',
+      screen: InboxScreen,
+    },
+    Drafts: {
+      path: '/sent',
+      screen: DraftsScreen,
+    },
+  },
+  {
+    initialRouteName: 'Drafts',
+    contentOptions: {
+      activeTintColor: '#e91e63',
+    },
+  }
+);
+
+const styles = StyleSheet.create({
+  container: {
+    marginTop: Platform.OS === 'ios' ? 20 : 0,
+  },
+});
+
+export default DrawerExample;
+```
+
+*'DrawerOpen'*이나 *'DrawerClose'* 으로 화면을 이동시켜서 Drawer를 열거나 닫을 수 있다.
+
+```
+this.props.navigation.navigate('DrawerOpen'); // open drawer
+this.props.navigation.navigate('DrawerClose'); // close drawer
+```
+
+DrawerNavigatorConfig 로 설정할 수 있는 Option들은 아래와 같다.
+ - drawerWidth : drawer의 width
+ - drawerPosition : drawer의 위치를 설정할 수 있다. left or right로 설정할 수 있다.
