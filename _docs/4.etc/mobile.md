@@ -1,7 +1,7 @@
 ---
 title: Mobile App Development Trends
 category: etc
-order: 1
+order: 2
 ---
 
 # Mobile App Development Trends
