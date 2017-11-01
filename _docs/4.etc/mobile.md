@@ -17,7 +17,7 @@ Swift가 IOS 앱을 개발하는 언어의 첫번째 주자로 등극하게 되�
 
 ## React Native 의 강세
 
-Cross Platform을 지원하는 앱을 만드는데 있어, React Native가 해당 분야를 지배하고 있다. React Native가 해당 위치를 지키게 된 주요 특징은 아래와 같다.
+React의 인기를 업은 React Native는 Facebook에서 공개한 오픈소스 플랫폼으로 React로 개발한 애플리케이션을 쉽게 네이티브 애플리케이션으로 전환하는 방법을 제공한다. iOS나 android, window 등의 Cross Platform을 지원하는 앱을 만드는데 있어, React Native가 해당 분야를 지배하고 있다. React Native가 해당 위치를 지키게 된 주요 특징은 아래와 같다.
 
 - Native Framework를 적용하기 쉬우며 Native에 유사한 성능을 기대할 수 있다.
 - React와 Redux에 익숙한 개발자들이 쉽게 개발이 가능하다.
@@ -25,7 +25,7 @@ Cross Platform을 지원하는 앱을 만드는데 있어, React Native가 해�
 
 ## AR(Augmented Reality Becomes)의 발전
 
-포켓몬 고로 시작된 AR의 가능성이 2017년도에 점점 현실이 되어가고 있다. 2017년 8월 말 Apple과 Google이 AR을 개발하는데 도움을 주는 \개발툴을 각각 공개하면서 가속화되고 있다.
+포켓몬 고로 시작된 AR의 가능성이 2017년도에 점점 현실이 되어가고 있다. 2017년 8월 말 Apple과 Google이 AR을 개발하는데 도움을 주는 개발툴을 각각 공개하면서 가속화되고 있다.
 
 ### Apple의 ARKit
 

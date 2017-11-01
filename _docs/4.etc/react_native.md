@@ -42,7 +42,7 @@ props.user.friends[0].friends
 idx(props, _ => _.user.friends[0].friends)
 ```
 
-## Introducing Create React Native App
+## Create React Native App
 
 React Native Project 를 쉽게 시작할 수 있도록 도움을 주는 [Create React App](https://github.com/react-community/create-react-native-app) 프로젝트가 공개되었다. Create React Native App 을 이용하면 개발장비에 Xcode 나 Android Studio 를 설치하지 않아도 Windows나 Linux 에서 React Native App을 개발할 수 있다. 
 
