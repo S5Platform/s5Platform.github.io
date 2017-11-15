@@ -14,7 +14,7 @@ React Native는 *React를 모바일 환경에서 어떻게 사용할 수 있을�
 
 React는 자바스크립트 내에 DOM Tree와 같은 구조체를 VIRTUAL DOM으로 갖고 있다. 다시 그릴 때는 그 구조체의 전후 상태를 비교하여 변경이 필요한 최소한의 요소만 실제 브라우져의 DOM에 반영된다. 따라서 무작위로 다시 그려도 변경에 필요한 최소한의 DOM만 갱신되기 때문에 빠르게 처리할 수 있는 것이다.
 
-React Native에서는 browser의 DOM 그리는 대신에 IOS일때는 Object-C API를, Android일 때는 Java API를 사용하여 화면을 그린다. *Connector*가 React 와 Native UI 요소들 간의 인터페이스를 담당하고 있기 때문이다. 
+React Native에서는 browser의 DOM 그리는 대신에 IOS일때는 Object-C API를, Android일 때는 Java API를 사용하여 화면을 그린다. *Connector*가 React 와 Native UI 요소들 간의 인터페이스를 담당하고 있기 때문이다.
 
 ### React Native Start
 
