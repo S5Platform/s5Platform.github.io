@@ -7,10 +7,10 @@ order: 1
 ###	STALK SERVER
 [STALK SERVER](https://github.com/S5Platform/stalk-messenger-server)는 메신저 개발에 필요한 사용자 관리, 데이터 관리, 메시지 전송 등의 기능을 제공하는 Node.js 기반의 백엔드 서버 BackEnd Server)이다. npm이나 docker를 이용하여 직접 설치하여 사용할 수 있다. 유저 관리, 데이터 관리 등은 Parse Server를 활용하여 API 형태로 제공하고, [XPush](https://github.com/xpush/node-xpush)를 활용하여 부하분산을 고려한 메시지 전송이 가능하도록 설계되었다. STALK-SERVER에서 제공하고 있는 주요 기능은 아래와 같다.
 
--	유저 관리 : 회원가입, 로그인, 로그아웃, 프로필 관리
--	친구 관리 : 사용자조회, 친구추가, 친구삭제
--	채널 관리 : 채널조회, 채널삭제, 사용자초대
--	메시지 관리 : 메세지조회, 메시지 전송, 이미지 전송
+- 유저 관리 : 회원가입, 로그인, 로그아웃, 프로필 관리
+- 친구 관리 : 사용자조회, 친구추가, 친구삭제
+- 채널 관리 : 채널조회, 채널삭제, 사용자초대
+- 메시지 관리 : 메세지조회, 메시지 전송, 이미지 전송
 
 
 ![stalk_im](/images/stalk_im.png)

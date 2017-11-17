@@ -6,6 +6,7 @@ title: Welcome
 
 STALK은 실시간 커뮤니케이션 플랫품인 XPush(https://github.com/xpush/node-xpush)를 사용한 오픈소스 메신저 플랫폼이다. 사용자 관리, 메시지의 전송, 보관을 담당하는 Backend 영역인 Stalk Server(https://github.com/S5Platform/stalk-messenger-server)와 모바일 기기에서의 메시지의 전송, 응답, 그리고 인앱 채팅을 구성하기 위한 컴포넌트를 포함하고 있는 Stalk Messager(https://github.com/S5Platform/stalk-messenger) 로 구성되어 있다. STALK Platfrom을 이용하면 앱 내부에서 메시지 전송을 지원할 수 있는 서비스인 인앱 채팅을 쉽게 구현할 수 있다. MIT 라이선스(MIT License)로 모든 소스가 공개되어 때문에 누구라도 취급 및 재사용, 가공이 가능하다.
 
+![stalk](/images/stalk.png)
 
 
 ### STALK과 인앱 채팅
