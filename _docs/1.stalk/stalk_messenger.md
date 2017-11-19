@@ -13,7 +13,7 @@ STALK-MESSENGER는 STALK-SERVER의 API를 사용하여 React Native 기반으로
 -	채널관리 : 채널조회, 채널삭제, 사용자초대, 채널 이미지 표시
 -	메세지관리 : 이전 메시지 조회, 메시지 전송, 이미지 전송, 푸시 알림
 
-## STALK-MESSENGER의 설치와 실행
+## STALK MESSENGER의 설치와 실행
 
 ```
 git clone https://github.com/S5Platform/stalk-messenger
@@ -33,4 +33,25 @@ android에서 실행하기 위해서는 android emulator가 설치되어 있어�
 ```
 // android에서 실행하기
 react-native run-android
+```
+
+![stalk_im](/images/stalk_im.png)
+
+#### STALK MESSENGER의 환경설정
+
+STALK MESSENGER는 [env.js](https://github.com/S5Platform/stalk-messenger/blob/master/env.js)를 이용하여 환경설정 을 할수 있다.
+
+`SERVER_URL`은 Stalk Sever와의 통신을 위한 URL 이기 때문에 정확한 URL을 입력해야 한다.
+
+아래는 환경 설정 파일의 예시이다.
+
+```
+APP_NAME: 'STALK',
+APP_ID: 'STALK',
+SERVER_URL: 'http://127.0.0.1:8080',
+TEST_MODE: true,
+VERSION: 1,
+APP_IDENTIFIER_IOS: 'io.stalk.s5messenger',
+APP_IDENTIFIER_ANDROID: 'io.stalk.s5messenger',
+ANDROID_GCM_SENDER_ID: 'xxxxxxxxxx'
 ```
