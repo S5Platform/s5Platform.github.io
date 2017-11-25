@@ -55,3 +55,27 @@ APP_IDENTIFIER_IOS: 'io.stalk.s5messenger',
 APP_IDENTIFIER_ANDROID: 'io.stalk.s5messenger',
 ANDROID_GCM_SENDER_ID: 'xxxxxxxxxx'
 ```
+
+STALK MESSENGER는 메시지를 발송하기 위해 socket io를 사용하고 있다. View에서 socket io를 아래와 같이 연결하면 채팅방에 속해있는 사용자들과 메시지를 주고 받을 Socket을 생성할 수 있게 된다.
+
+```
+var node = {
+  url : 'http://127.0.0.1:8180',
+  app: 'STALK' // 현재 사용중인 app의 이름,
+  name: '10' //할당받은 server의 이름,
+  channelId: '24b53f' //채팅을 위해 생성한 채널의 id
+  currentUserId : this.props.user.id // 현재 로그인 한 사람의 id
+}
+
+this.socket = new SocketIO(node.url, {
+  nsp: '/channel',
+  forceWebsockets: true,
+  forceNew: true,
+  connectParams: {
+    A: node.app,
+    S: node.name,
+    C: channelId,
+    U: currentUserId
+  }
+});
+```
