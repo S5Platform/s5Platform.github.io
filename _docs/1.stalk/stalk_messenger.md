@@ -79,3 +79,20 @@ this.socket = new SocketIO(node.url, {
   }
 });
 ```
+
+생성한 socket 으로 `send` 이벤트를 발생시키면 메시지를 전송할 수 있다.
+이때 주의해야할 점은 send 실행 시에 입력해야할 data의 schema이다.
+NM을 아래와 같이 `message` 라고 선언하고 DT에 실제 전송할 data를 입력하면 분산처리를 지원한 stalk messenger server를 활용할 수 있게 된다. 
+
+```
+this.socket.emit('send', {NM:'message', DT: message});
+```
+
+전송한 메세지는 `on` 이벤트를 통해 받을 수 있다.
+
+```
+this.socket.on('message', (message) => {
+  // MESSAGED RECEIVED
+  console.log('[MESSAGE] ', message);
+});
+```
