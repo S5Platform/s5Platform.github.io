@@ -70,8 +70,16 @@ React Native는 1달에 한번 정식으로 Release 되고 있다. 이 중에서
 
  - 0.49   : RCTBatchedBridge 가 deprecation warning을 노출하게 되었다.
           : index.ios.js 와 index.android.js가 index.js 로 통합되었다.
-
  - 0.48   : RCTDeviceEventEmitter 가 fatal warning을 노출하게 되었다.
+ - 0.47   : Android 버젼의 `createJSModules` method가 deprecated 되어 이전의 Android Native Module을 사용할 경우 빌드 도중 에러가 발생하게 된다. 아래와 같이 해당 메소드에 선언된 override annotaion을 제거해주면 해결이 가능하다.
+
+```
+// @Override
+public List<Class<? extends JavaScriptModule>> createJSModules() {
+    return Collections.emptyList();
+}
+```
+
  - 0.46.4 : `react-native-xcode.sh` 위치가 변경되었다. Build Phase의 React Native 설정을 아래와 같이 변경해야한다.
 
 
