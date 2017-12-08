@@ -80,7 +80,22 @@ this.socket = new SocketIO(node.url, {
 });
 ```
 
-생성한 socket 으로 `send` 이벤트를 발생시키면 메시지를 전송할 수 있다.
+socket 연결이 완료되면 아래와 같이 `connect` 이벤트가 호출된다.
+실패하면 `connect_error` 이벤트가 호출된다.
+
+```
+connect를 했을 경우
+this.socket.on('connect', () => { // SOCKET CONNECTION EVENT
+  console.log( 'conneted' );
+});
+
+connect를 실패했을 경우
+this.socket.on('connect_error', (err) => { // SOCKET CONNECTION EVENT
+  console.warn(err);
+});
+```
+
+생성후 `connect`가 완료된 socket을 이용하여 으로 `send` 이벤트를 발생시키면 메시지를 전송할 수 있다.
 이때 주의해야할 점은 send 실행 시에 입력해야할 data의 schema이다.
 NM을 아래와 같이 `message` 라고 선언하고 DT에 실제 전송할 data를 입력하면 분산처리를 지원한 stalk messenger server를 활용할 수 있게 된다. 
 
@@ -88,7 +103,7 @@ NM을 아래와 같이 `message` 라고 선언하고 DT에 실제 전송할 data
 this.socket.emit('send', {NM:'message', DT: message});
 ```
 
-전송한 메세지는 `on` 이벤트를 통해 받을 수 있다.
+접속완료 후 전송한 메세지는 `on` 이벤트를 통해 받을 수 있다.
 
 ```
 this.socket.on('message', (message) => {
